@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+
+<body>
+<div layout:fragment="conteudo">
+    <h1>Welcome to Application Insights</h1>
+
+     <div class="btn-info btn-group-vertical">
+    <button class="btn btn-primary" >
+     <a th:href="@{/homeProduto}" style="color: #f8f8f8">Gerenciar Produtos</a>
+    </button>
+    <button class="btn btn-primary">
+    <a th:href="@{/homeCliente}"style="color: #f8f8f8">Gerenciar Clientes</a>
+    </button>
+
+    <button class="btn btn-primary">
+    <a th:href="@{/homeOpiniao}"style="color: #f8f8f8">Feedbacks</a>
+     </button>
+ </div>
+</div>
+
+</body>
+</html>

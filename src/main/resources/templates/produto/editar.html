@@ -1,0 +1,38 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Editar Produto</title>
+</head>
+<body>
+<div layout:fragment="conteudo">
+    <h1>Editar produto:</h1>
+    <form th:action="@{/produto/editar}" th:object="${produto}" method="post">
+
+        <input th:field="*{id}" type="hidden"/>
+        <div class="mb-3">
+            <label class="form-label">Nome</label>
+            <input class="form-control" th:field="*{nome}" type="text" id="nome" placeholder="Informe o nome do Produto">
+            <p th:if="${#fields.hasErrors('nome')}" class="text text-danger" th:errors="*{nome}"></p>
+
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Valor</label>
+            <input class="form-control" th:field="*{valor}" type="text" id="valor" placeholder="Informe o valor do Produto">
+            <p th:if="${#fields.hasErrors('valor')}" class="text text-danger" th:errors="*{valor}"></p>
+
+        </div>
+
+        <button class="btn btn-success">Salvar</button>
+
+        <br>
+        <p th:text="${msg}"></p>
+    </form>
+</div>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

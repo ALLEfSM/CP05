@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Editando...</title>
+</head>
+<body>
+<div layout:fragment="conteudo">
+    <h1>Editar produto:</h1>
+    <form th:action="@{/opiniao/editar}" th:object="${opiniao}" method="post">
+
+        <input th:field="*{id}" type="hidden"/>
+        <div class="mb-3">
+            <label class="form-label">Comentario</label>
+            <textarea class="form-control" th:field="*{comentario}" id="comentario">
+            </textarea>
+            <p th:if="${#fields.hasErrors('comentario')}" class="text text-danger" th:errors="*{comentario}"></p>
+        </div>
+
+        <button class="btn btn-success">Salvar</button>
+
+        <br>
+        <p th:text="${msg}"></p>
+    </form>
+</div>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

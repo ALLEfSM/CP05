@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Listar Produtos</title>
+</head>
+<body>
+<div layout:fragment="conteudo">
+    <h1>Lista de Produtos</h1>
+    <div class="alert alert-success"
+         th:if="!${#strings.isEmpty(mensagem)}" th:text="${mensagem}">
+    </div>
+    <table class="table">
+        <tr>
+            <th>Nome</th>
+            <th>Valor</th>
+        </tr>
+        <tr th:each="prod:${produtos}">
+            <td th:text="${prod.nome}">
+                <a th:href="@{/produto/editar/}+${prod.id}"
+                   class="btn btn-outline-primary">Editar</a>
+            </td>
+            <td th:text="${prod.valor}"></td>
+            <th>
+                <a th:href="@{/produto/editar/}+${prod.id}"
+                   class="btn btn-outline-primary">Editar</a>
+                <!-- Button trigger modal -->
+                <button th:onclick="|produtoId.value = ${prod.id}|" type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Remover
+                </button>
+            </th>
+        </tr>
+    </table>
+    <a th:href="@{/produto/cadastrar}">Cadastrar</a>
+
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Deseja realmente excluir o produto?
+                </div>
+                <div class="modal-footer">
+                    <form th:action="@{/produto/excluir}" method="post">
+                        <input type="hidden" name="id" id="produtoId"/>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                        <button type="submit" class="btn btn-danger">Sim</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>

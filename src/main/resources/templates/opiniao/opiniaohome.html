@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciar Feedbacks</title>
+
+</head>
+<body>
+
+<div layout:fragment="conteudo">
+    <h1>Gerenciar Feedbacks</h1>
+
+    <button class="btn btn-primary" >
+        <a th:href="@{/opiniao/cadastrar}" style="color: #ffffff">Dar Opinião</a>
+    </button>
+    <button class="btn btn-primary" >
+        <a th:href="@{/opiniao/listar}" style="color: #ffffff">Visualizar Feedback</a>
+    </button>
+</div>
+
+
+</body>

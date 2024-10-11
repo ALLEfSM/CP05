@@ -1,0 +1,27 @@
+
+.navbar {
+    padding: 10px 20px;
+}
+
+.navbar-brand {
+    color: white;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.nav-link:hover {
+    color: #ccc;
+}
+
+.form-control {
+    width: auto;
+}
+
+.btn-outline-success {
+    margin-left: 10px;
+}

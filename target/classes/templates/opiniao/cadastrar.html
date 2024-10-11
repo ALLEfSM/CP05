@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar</title>
+</head>
+<body>
+<div layout:fragment="conteudo">
+    <h1>Dar Opinião</h1>
+    <div class="alert alert-success" th:if="!${#strings.isEmpty(mensagem)}" th:text="${mensagem}">
+    </div>
+    <form th:action="@{/opiniao/cadastrar}" th:object="${opiniao}" method="post">
+
+
+        <div class="mb-3">
+            <label class="form-label">Comentário</label>
+            <textarea class="form-control" th:field="*{comentario}" id="comentario">
+            </textarea>
+            <p th:if="${#fields.hasErrors('comentario')}" class="text text-danger" th:errors="*{comentario}"></p>
+
+        </div>
+
+        <button class="btn btn-success">Cadastrar</button>
+    </form>
+</div>
+</body>
+</html>

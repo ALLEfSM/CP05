@@ -1,0 +1,27 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.btn-group-vertical {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.my-button {
+    margin-bottom: 10px;
+    width: 200px;
+}
+
+.alert-success {
+    margin-top: 20px;
+}

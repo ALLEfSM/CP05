@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciamento de produtos</title>
+
+
+</head>
+<body>
+
+
+    <div layout:fragment="conteudo">
+        <h1>Gerenciar Produtos</h1>
+
+        <button class="btn btn-primary" >
+            <a th:href="@{/produto/cadastrar}" style="color: #ffffff">Cadastro Produto</a>
+        </button>
+        <button class="btn btn-primary" >
+            <a th:href="@{/produto/listar}" style="color: #ffffff">Visualizar Produtos</a>
+        </button>
+    </div>
+
+
+</body>
+</html>
